@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Comment -->
+<!--  -->
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+	<!-- Name with which the extension appears in the menu, makes mess with the underscore _ -->
+	<name>GRBL Laser Varibale Feed Rate Control</name>
+	<!-- The ID field must be unique  -->
+	<id>com.grbl.laser_vfrc</id>
+
+	<!-- Dependencies, just the main python script is enough -->
+	<dependency type="executable" location="extensions">grbl_vfrc.py</dependency>
+	<dependency type="executable" location="extensions">inkex.py</dependency>
+
+	<!-- Input parameters for the python script that are displayed in the widget created by -->
+	<!-- inkscape are generated in order of how they are written -->
+
+	<!-- Title and description -->
+	<param name="Title" type="description">GRBL Laser Varibale Feed Rate Control</param>
+	<param name="Description" type="description">created by JB Schueler</param>
+
+	<!-- Image export options -->
+	<param name="directory" type="string"  gui-text="Export directory"></param>
+	<param name="filename" type="string"  gui-text="File Name"></param>
+	<param name="add-numeric-suffix-to-filename" type="boolean" gui-text="Add numeric suffix to filename">true</param>
+
+	<param name="bg_color" type="enum" gui-text="Replace transparency with">
+		<_item value="#ffffff">White</_item>
+		<_item value="#000000">Black</_item>
+	</param>
+
+	<param name="resolution" type="enum" gui-text="Resolution">
+		<_item value="1">1 pixel/mm</_item>
+		<_item value="2">2 pixels/mm</_item>
+		<_item value="3">3 pixels/mm</_item>
+		<_item value="4">4 pixels/mm</_item>
+		<_item value="5">5 pixels/mm</_item>
+		<_item value="6">6 pixels/mm</_item>
+		<_item value="7">7 pixels/mm</_item>
+		<_item value="8">8 pixels/mm</_item>
+		<_item value="9">9 pixels/mm</_item>
+		<_item value="10">10 pixels/mm</_item>
+	</param>
+
+	<!-- Gamma correction -->
+	<param name="grayscale_gamma" type="enum" gui-text="Gamma correction">
+		<_item value="1">Y=4</_item>    <!-- X^3     -->
+		<_item value="2">Y=3</_item>    <!-- X^3     -->
+		<_item value="3">Y=2</_item>    <!-- X^2     -->
+		<_item value="4">Y=1</_item>    <!-- X^1     -->
+		<_item value="5">Y=1/2</_item>  <!-- X^(1/2) -->
+		<_item value="6">Y=1/3</_item>  <!-- X^(1/3) -->
+		<_item value="7">Y=1/4</_item>  <!-- X^(1/4) -->
+	</param>	
+
+	<!-- Feed rate Black(minimum) and White(maximum) -->
+	<param name="feedmax" type="int" min="1" max="10000" gui-text="Feed Rate for White">1000</param>
+	<param name="feedmin" type="int" min="1" max="10000" gui-text="Feed Rate for Black">200</param>
+
+	<param name="laseron" type="string"  gui-text="Laser ON Command">M03</param>
+	<param name="laseroff" type="string"  gui-text="Laser OFF Command">M05</param>
+	<param name="laserpowerwhite" type="int" min="0" max="255" gui-text="Laser Power White">128</param>
+	<param name="laserpowerblack" type="int" min="0" max="255" gui-text="Laser Power`Black">128</param>
+
+	<!-- Preview = BW image only -->
+	<param name="preview_only" type="boolean" gui-text="Preview only">false</param>
+	<param name="p_only" type="description">If "Preview only" is true the gcode file will not be generated.</param>
+
+	<!-- To remove the Antepima direct box, replace <effect> with <effect needs-live-preview = "false  -->
+	<!-- <effect> -->
+	<!-- 	<effect needs-live-preview="false"> -->
+	<effect needs-live-preview="false"> 
+        <object-type>all</object-type>
+		<!-- Where the script will appear in the extensions menu -->
+		<!-- "Extensions => GRBL VFRC => extension_extension" -->
+        <effects-menu>
+            <submenu name="GRBL Laser"/>
+        </effects-menu>
+    </effect>
+
+	<!-- Python script to run -->
+	<script>
+    	<command reldir="extensions" interpreter="python">grbl_vfrc.py</command>
+    </script>
+</inkscape-extension>
+
+
