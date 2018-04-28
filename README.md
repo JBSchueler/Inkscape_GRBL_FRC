@@ -6,39 +6,36 @@ https://github.com/305engineering/Inkscape
 
 
 
-#Installing:
+## Installing:
 
 Simply copy all the files in the folder "Extensions" of Inkscape
 
->Windows ) "C:\<...>\Inkscape\share\extensions"
+- Windows ) "C:\<...>\Inkscape\share\extensions"
 
->Linux ) "/usr/share/inkscape/extensions"
+- Linux ) "/usr/share/inkscape/extensions"
 
->Mac ) "/Applications/Inkscape.app/Contents/Resources/extensions"
+- Mac ) "/Applications/Inkscape.app/Contents/Resources/extensions"
 
 
 for unix (& mac maybe) change the permission on the file:
 
->>chmod 755 for all the *.py files
+`chmod 755` for all the *.py files
 
->>chmod 644 for all the *.inx files
+`chmod 644` for all the *.inx files
 
 
 
-#Usage of "GRBL VFRC":
+## Usage of "GRBL VFRC":
 
 [Required file: png.py / grbl_vfrc.inx / grbl_vfrc.py]
 
-- Step 1) Resize the inkscape document to match the dimension of your working area on the laser cutter/engraver (Shift+Ctrl+D)
-
-- Step 2) Draw or import the image
-
-- Step 3) To run the extension go to: Extension > GRBL Laser > GRBL Laser Variable Feed Rate Control
-
-- Step 4) Play!
+1. Resize the inkscape document to match the dimension of your working area on the laser cutter/engraver (Shift+Ctrl+D)
+2. Step 2) Draw or import the image
+3. Step 3) To run the extension go to: Extension > GRBL Laser > GRBL Laser Variable Feed Rate Control
+4. Step 4) Play!
 
 
-#How To Set Laser Cut Values:
+## How To Set Laser Cut Values:
 1. Import "GREY_TEST.png" into InkScape as mentioned at Usage of "GRBL VFRC" (size 5 x 30mm)
 2. Set Gamma Correction  Y=1
 3. Set "Feed Rate for White" to maximum Feed Rate of CNC Machine
@@ -62,9 +59,7 @@ Better to write down these settings for a next time.
 
 To increase sharpness, try Y=2 or Y=3.
 
-
-
-#Note
-I have created all the file except for png.py , see that file for details on the license
+_Note_
+_I have created all the file except for png.py , see that file for details on the license_
 
 
